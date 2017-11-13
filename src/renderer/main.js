@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import axios from 'axios'
-
 import App from './App'
 import router from './router'
 import store from './store'
+import db from '../../db/models'
 
 require('font-awesome/scss/font-awesome.scss')
 
@@ -12,9 +12,11 @@ Vue.http = Vue.prototype.$http = axios
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
-new Vue({
-  components: { App },
-  router,
-  store,
-  template: '<App/>'
-}).$mount('#app')
+db.sequelize.sync().then(function () {
+  new Vue({
+    components: { App },
+    router,
+    store,
+    template: '<App/>'
+  }).$mount('#app')
+})
