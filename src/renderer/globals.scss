@@ -1,0 +1,16 @@
+$primary-font-size: 1.2em;
+$primary-bg-color: #010101;
+$primary-font-color: #efefef;
+$app-margin: 5px;
+
+/* full-width * aspect-ratio */
+
+@mixin full-width {
+    width: 100vw;
+    height: calc(100vw * (9/16));
+}
+
+@mixin app-box {
+    width: calc(100vw - $app-margin);
+    height: calc(100vh - $app-margin);
+}
